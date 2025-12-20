@@ -1,16 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import HomeScreen from '../screens/HomeScreen'
+import BottomTabs from './BottomTabs'
 
 export default function AppContent() {
     const safeAreaInsets = useSafeAreaInsets();
     return (
         <View style={styles.container}>
-            <HomeScreen
+            <BottomTabs
                 templateFileName="App.tsx"
-                safeAreaInsets={safeAreaInsets}
-                
+                safeAreaInsets={safeAreaInsets}  
             />
 
         </View>
