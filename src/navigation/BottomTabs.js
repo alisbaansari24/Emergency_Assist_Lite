@@ -1,57 +1,79 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import HomeScreen from '../screens/HomeScreen'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-
+import HomeScreen from '../screens/HomeScreen'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator()
 
 export default function BottomTabs() {
-    const tabList = [
-        {
-            route: 'Home',
-            component: HomeScreen,
-            icon: 'home-outline',
-            activeIcon: 'home',
-        },
-        {
-            route: 'Profile',
-            component: HomeScreen,
-            icon: 'person-outline',
-            activeIcon: 'person-sharp',
-        },
-    ]
-
     return (
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
-                // tabBarShowLabel: false,
+                tabBarShowLabel: true,
+                tabBarActiveTintColor: '#fe8650',
+                tabBarInactiveTintColor: '#2f3a50',
+                // tabBarBackground:'#f6f5fb',
                 tabBarStyle: {
-                    height: 55,
+                    height: 60,
                     position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
+                    bottom: 16,
+                    borderRadius: 16,
+                    paddingTop: 8,
+                    marginLeft: 10,
+                    marginRight: 10,
+                    backgroundColor:'#ebe9f5'
+
                 },
             }}
         >
-            {tabList.map((tab, index) => (
-                <Tab.Screen
-                    key={index}
-                    name={tab.route}
-                    component={tab.component}
-                    options={{
-                        tabBarIcon: ({ focused }) => (
-                            <Ionicons
-                                name={focused ? tab.activeIcon : tab.icon}
-                                size={26}
-                                color={focused ? '#086436' : '#9CA3AF'}
-                            />
-                        ),
-                    }}
-                />
-            ))}
+            <Tab.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{
+                    tabBarIcon: ({ focused, color }) => (
+                        <Ionicons
+                            name='home'
+                            size={26}
+                            color={color}
+                        />
+                    ),
+                }}
+            />
+            <Tab.Screen
+                name='Notebook'
+                component={HomeScreen}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <MaterialCommunityIcons name="notebook" color={color} size={26} />
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Profile"
+                component={HomeScreen}
+                options={{
+                    tabBarIcon: ({ focused, color }) => (
+                        <Ionicons
+                            name='person-sharp'
+                            size={26}
+                            color={color}
+                        />
+                    ),
+                }}
+            />
+
+            <Tab.Screen
+                name='explore'
+                component={HomeScreen}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <MaterialIcons name="explore" color={color} size={28} />
+                    )
+                }}
+            />
         </Tab.Navigator>
     )
 }
