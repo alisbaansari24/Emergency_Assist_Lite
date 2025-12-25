@@ -24,7 +24,7 @@ export default function BottomTabs() {
                     paddingTop: 8,
                     marginLeft: 10,
                     marginRight: 10,
-                    backgroundColor:'#ebe9f5'
+                    backgroundColor: '#ebe9f5'
 
                 },
             }}
@@ -43,11 +43,22 @@ export default function BottomTabs() {
                 }}
             />
             <Tab.Screen
-                name='Notebook'
+                name='My Circle'
                 component={HomeScreen}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <MaterialCommunityIcons name="notebook" color={color} size={26} />
+                    )
+                }}
+            />
+
+
+            <Tab.Screen
+                name='Explore'
+                component={HomeScreen}
+                options={{
+                    tabBarIcon: ({ color }) => (
+                        <MaterialIcons name="explore" color={color} size={28} />
                     )
                 }}
             />
@@ -62,16 +73,6 @@ export default function BottomTabs() {
                             color={color}
                         />
                     ),
-                }}
-            />
-
-            <Tab.Screen
-                name='explore'
-                component={HomeScreen}
-                options={{
-                    tabBarIcon: ({ color }) => (
-                        <MaterialIcons name="explore" color={color} size={28} />
-                    )
                 }}
             />
         </Tab.Navigator>
