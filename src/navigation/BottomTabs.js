@@ -18,7 +18,7 @@ export default function BottomTabs() {
                 // tabBarBackground:'#f6f5fb',
                 tabBarStyle: {
                     height: 60,
-                    position: 'absolute',
+                    // position: 'absolute',
                     bottom: 16,
                     borderRadius: 16,
                     paddingTop: 8,
